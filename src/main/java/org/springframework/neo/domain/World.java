@@ -45,7 +45,6 @@ public class World {
     }
 
 
-    private Set<World> reachableByRocket = new HashSet<>();
 
     public World(String name, int moons) {
         this.name = name;
@@ -66,6 +65,7 @@ public class World {
     public int getMoons() {
         return moons;
     }
+    private Set<World> reachableByRocket = new HashSet<>();
 
     public void addRocketRouteTo(World otherWorld) {
         reachableByRocket.add(otherWorld);
@@ -87,6 +87,7 @@ public class World {
     public boolean canBeReachedFrom(World otherWorld) {
        for(World world : reachableByRocket) {
            if(world.equals(otherWorld)) {
+
                return true;
            }
        }
